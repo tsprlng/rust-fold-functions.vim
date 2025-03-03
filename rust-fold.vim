@@ -4,7 +4,7 @@ function! MakeRustFuncDefs()
     let lnum = 1
     while lnum <= line('$')
         let current_line = getline(lnum)
-        if match(current_line, '^ *\(pub \)\?fn') > -1
+        if match(current_line, '^ *\(pub\(([^)]\+)\)\? \)\?fn') > -1
             call AddRustFunc(lnum)
         endif
 
